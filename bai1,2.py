@@ -9,3 +9,5 @@ try:
 except:
     print(' du lieu nhap khong dung')
     print("abc")
+finally:
+    print('ket thuc chuong trinh!')
