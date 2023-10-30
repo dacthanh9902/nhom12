@@ -1,4 +1,5 @@
 # bài 1 tính tổng, hiệu , tích , thương hai số bất kì :
+print(123)
 try:
     a = int(input('hay nhap a:'))
     b = int(input('hay nhap b:'))
