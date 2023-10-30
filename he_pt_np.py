@@ -96,3 +96,37 @@ def solve(entry):
 window = tk.Tk()
 window.title("Giải hệ phương trình tuyến tính")
 window.geometry("1920x1080")
+equation_entries_list = []
+attached_labels = []  # Danh sách để lưu trữ các label đính kèm
+
+# Nhập số phương trình n
+n_level = tk.Label(window, text="Nhập số phương trình")
+n_level.grid(row=0, column=0)
+n_entry = tk.Entry(window)
+n_entry.grid(row=0, column=1)
+
+# Tạo button tạo hệ phương trình
+btn_create = tk.Button(window, text="Create", command=lambda: validate_input(
+    n_entry) and create(n_entry))
+btn_create.grid(row=1, column=0)
+
+# Tạo button xóa hệ phương trình
+btn_delete = tk.Button(window, text="Delete", command=delete_fields)
+btn_delete.grid(row=1, column=1)
+
+# Tạo button reset dữ liệu
+btn_reset = tk.Button(window, text="Reset", command=lambda: reset(n_entry))
+btn_reset.grid(row=1, column=2)
+
+# Tạo button giải hệ phương trình
+btn_solve = tk.Button(window, text="Solve", command=lambda: solve(n_entry))
+btn_solve.grid(row=1, column=3, padx=100)
+
+# Hiển thị kết quả
+result_label = tk.Label(window, text="Result")
+result_label.grid(row=2, column=0)
+result = tk.Text(window, height=5, width=40)
+result.grid(row=2, column=1, pady=10)
+
+window.mainloop()
+
