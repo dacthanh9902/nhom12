@@ -92,4 +92,7 @@ def solve(entry):
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
-
+# Tạo cửa sổ giao diện
+window = tk.Tk()
+window.title("Giải hệ phương trình tuyến tính")
+window.geometry("1920x1080")
