@@ -16,7 +16,6 @@ class Drawing:
         self.proj_name = None
         self.root = None
         self.image1 = None
-        self.status_label = None
         self.canvas = None
         self.draw = None
         self.brush_width = 15
@@ -90,11 +89,7 @@ class Drawing:
         train_btn.grid(row=2, column=0, sticky=W + E)
 
         predict_btn = Button(btn_frame, text="Predict", command=self.predict)
-        predict_btn.grid(row=3, column=1, sticky=W + E)
-        
-        self.status_label = Label(btn_frame, text=f"Current Model: {type(self.clf).__name__}")
-        self.status_label.config(font=("Arial", 10))
-        self.status_label.grid(row=4, column=1, sticky=W + E)
+        predict_btn.grid(row=2, column=1, sticky=W + E)
 
         self.root.mainloop()
 
@@ -107,7 +102,7 @@ class Drawing:
     def save(self, class_num):
         self.image1.save("temp.png")
         img = PIL.Image.open("temp.png")
-        img.thumbnail((50, 50), PIL.Image.ANTIALIAS)
+        img.thumbnail((50, 50))
 
         if class_num == 1:
             img.save(f"{self.proj_name}/{self.class1}/{self.class1_counter}.png", "PNG")
@@ -150,9 +145,7 @@ class Drawing:
 
         for x in range(1, self.class3_counter):
             img = cv.imread(f"{self.proj_name}/{self.class3}/{x}.png")[:, :, 0]
-            print(img.shape())
             img = img.reshape(2500)
-            print(img.shape())
             img_list = np.append(img_list, [img])
             class_list = np.append(class_list, 3)
 
@@ -164,7 +157,7 @@ class Drawing:
     def predict(self):
         self.image1.save("temp.png")
         img = PIL.Image.open("temp.png")
-        img.thumbnail((50, 50), PIL.Image.ANTIALIAS)
+        img.thumbnail((50, 50))
         img.save("predictshape.png", "PNG")
 
         img = cv.imread("predictshape.png")[:, :, 0]
