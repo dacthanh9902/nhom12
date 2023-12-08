@@ -15,4 +15,4 @@ except:
     print("abc")
 finally:
     print('ket thuc chuong trinh!')
-    print("123")
+    print("1234")
