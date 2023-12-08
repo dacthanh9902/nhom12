@@ -1,4 +1,5 @@
 print("Xin chào!")
 print(42)
 x = 3.141212
-print(x)
+y = 2
+print(x,y)
